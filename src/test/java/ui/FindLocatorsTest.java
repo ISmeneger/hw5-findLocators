@@ -109,19 +109,16 @@ public class FindLocatorsTest {
         WebElement dateBox = driver.findElement(By.name("my-date"));
         dateBox.click();
         Thread.sleep(1000);
-        dateBox.sendKeys("03172025");
+        dateBox.sendKeys("03/17/2025");
         Thread.sleep(2000);
 
         WebElement exampleRange = driver.findElement(By.name("my-range"));
-        while (true) {
-            exampleRange.getDomAttribute("value == 10");
+        for (int min = 0; min <= 10 ; min++) {
             exampleRange.sendKeys(Keys.ARROW_RIGHT);
-            break;
         }
+
         Thread.sleep(1000);
         driver.findElement(By.tagName("button")).click();
         Thread.sleep(1000);
     }
 }
-
-
