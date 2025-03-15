@@ -8,10 +8,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FindLocatorsTest {
+public class WebFormTests {
     WebDriver driver;
     private static final String BASE_URL = "https://bonigarcia.dev/selenium-webdriver-java/";
 
@@ -28,7 +29,7 @@ public class FindLocatorsTest {
     }
 
     @Test
-    void openHomePageTest() throws InterruptedException {
+    void openWebFormTest() throws InterruptedException {
         String webFormUrl = "web-form.html";
         driver.findElement(By.xpath("//h5[text() = 'Chapter 3. WebDriver Fundamentals']/../a[contains(@href, 'web-form')]")).click();
         String currentUrl = driver.getCurrentUrl();
@@ -51,16 +52,14 @@ public class FindLocatorsTest {
         assertEquals("Readonly input", readonlyInput.getDomAttribute("value"));
         Thread.sleep(1000);
 
-        driver.findElement(By.className("form-select")).sendKeys("Open this select menu");
+        Select select = new Select(driver.findElement(By.className("form-select")));
+        select.selectByValue("1");
         Thread.sleep(1000);
-        driver.findElement(By.className("form-select")).sendKeys("One");
+        select.selectByValue("2");
         Thread.sleep(1000);
-        driver.findElement(By.className("form-select")).sendKeys("Two");
+        select.selectByValue("3");
         Thread.sleep(1000);
-        driver.findElement(By.className("form-select")).sendKeys("Three");
-        Thread.sleep(1000);
-        driver.findElement(By.name("my-datalist")).click();
-        Thread.sleep(1000);
+
         driver.findElement(By.name("my-datalist")).sendKeys("San Francisco");
         Thread.sleep(1000);
         driver.findElement(By.name("my-datalist")).sendKeys(Keys.CONTROL+"a");
@@ -89,7 +88,7 @@ public class FindLocatorsTest {
         Thread.sleep(1000);
         driver.findElement(By.name("my-datalist")).click();
         Thread.sleep(1000);
-        driver.findElement(By.name("my-datalist")).sendKeys("Los Chicago");
+        driver.findElement(By.name("my-datalist")).sendKeys("Chicago");
         Thread.sleep(1000);
 
         String selectFile = "C:\\Users\\Lenovo\\IdeaProjects\\hw5-findLocators\\src\\test\\java\\downloads\\STE In Banner.jpg";
