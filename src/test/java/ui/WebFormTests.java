@@ -36,6 +36,23 @@ public class WebFormTests {
 
         assertEquals(BASE_URL + webFormUrl, currentUrl);
 
+        WebElement heading = driver.findElement(By.className("display-4"));
+
+        assertEquals("Hands-On Selenium WebDriver with Java", heading.getText());
+
+        WebElement title = driver.findElement(By.tagName("h5"));
+
+        assertEquals("Practice site", title.getText());
+
+        WebElement image = driver.findElement(By.xpath("//img"));
+
+        int width = image.getSize().getWidth();
+        int hight = image.getSize().getHeight();
+
+        System.out.println(width +">>>" + hight);
+
+        assertEquals(width, 80);
+
         driver.findElement(By.id("my-text-id")).sendKeys("My login name");
         Thread.sleep(1000);
         driver.findElement(By.name("my-password")).sendKeys("Qwerty");
