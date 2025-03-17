@@ -51,7 +51,7 @@ public class WebFormTests {
 
         System.out.println(width +">>>" + hight);
 
-        assertEquals(width, 80);
+        assertEquals(80, width);
 
         driver.findElement(By.id("my-text-id")).sendKeys("My login name");
         Thread.sleep(1000);
