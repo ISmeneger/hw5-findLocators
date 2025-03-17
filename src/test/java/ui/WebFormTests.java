@@ -42,6 +42,7 @@ public class WebFormTests {
         Thread.sleep(1000);
         driver.findElement(By.name("my-textarea")).sendKeys("My name is Ilya");
         Thread.sleep(1000);
+
         WebElement disabledInput = driver.findElement(By.name("my-disabled"));
 
         assertEquals("Disabled input", disabledInput.getDomAttribute("placeholder"));
