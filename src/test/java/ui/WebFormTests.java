@@ -109,7 +109,7 @@ public class WebFormTests {
         driver.findElement(By.name("my-datalist")).sendKeys("Chicago");
         Thread.sleep(1000);
 
-        String selectFile = "C:\\Users\\Lenovo\\IdeaProjects\\hw5-findLocators\\src\\test\\java\\downloads\\STE In Banner.jpg";
+        String selectFile = System.getProperty("user.dir") + "/src/test/resources/STE In Banner.jpg";
         driver.findElement(By.name("my-file")).sendKeys(selectFile);
         Thread.sleep(1000);
 
@@ -126,7 +126,7 @@ public class WebFormTests {
         WebElement dateBox = driver.findElement(By.name("my-date"));
         dateBox.click();
         Thread.sleep(1000);
-        dateBox.sendKeys("03/17/2025");
+        dateBox.sendKeys("03/19/2025");
         Thread.sleep(2000);
 
         WebElement exampleRange = driver.findElement(By.name("my-range"));
